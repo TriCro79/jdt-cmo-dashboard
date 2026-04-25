@@ -13,13 +13,6 @@ export default function LoginPage() {
     setStatus('sending')
     setErrorMsg('')
 
-    const allowed = process.env.NEXT_PUBLIC_ALLOWED_EMAIL
-    if (allowed && email.trim().toLowerCase() !== allowed.toLowerCase()) {
-      setStatus('error')
-      setErrorMsg('This email is not authorized.')
-      return
-    }
-
     const supabase = createClient()
     const { error } = await supabase.auth.signInWithOtp({
       email,

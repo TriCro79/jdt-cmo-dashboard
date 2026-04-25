@@ -2,6 +2,7 @@ import { createClient } from '@/lib/supabase/server'
 import { redirect } from 'next/navigation'
 import { MemoViewer } from '@/components/memo-viewer'
 import { TrippRequests } from '@/components/tripp-requests'
+import { ContentQueue } from '@/components/content-queue'
 
 export default async function Home() {
   const supabase = await createClient()
@@ -20,6 +21,7 @@ export default async function Home() {
       <main className="max-w-4xl mx-auto space-y-8">
         <MemoViewer />
         <TrippRequests />
+        <ContentQueue />
       </main>
     </div>
   )
